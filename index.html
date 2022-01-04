@@ -1,122 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    
-    <title>invoicr.</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <title>invoicr.</title>
 </head>
-<body class="d-flex flex-column">
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-12">
-                <div class="border box-shadow">
-                    <div class="p-5">
-                        <h2 class="font-special">invoicr.</h2>
-                        <p class="mb-0">David Paredes
-                        <p class="mb-0">123 Fake Street
-                            <br>Toronto, Ontario, Canada
-                        </p>
-                    </div>
+<body>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="p-4 px-sm-5 pt-sm-5">
+            <h1>invoicr.</h1>
+            <p>David Paredes <br>123 Fake Street <br>Toronto, ON, Canada</p>
+          </div>
 
-                    <div class="py-4 px-5">
-                        <div class="row d-none d-sm-flex">
-                            <div class="col-3 col-md-5 d-flex">
-                                <h4 class="text-uppercase">Item</h4>
-                            </div>
-                            <div class="col-3 col-md-2 d-flex justify-content-end">
-                                <h4 class="text-uppercase">Price</h4>
-                            </div>
-                            <div class="col-3 col-md-2 d-flex justify-content-end">
-                                <h4 class="text-uppercase">Qty</h4>
-                            </div>
-                            <div class="col-3 d-flex justify-content-end">
-                                <h4 class="text-uppercase">Amount</h4>
-                            </div>
-                        </div>
+          <div class="p-4 p-sm-5">
+            <div class="row d-none d-sm-flex text-right">
+              <div class="col col-md-5 text-left">
+                <h4>Item</h4>
+              </div>
+              <div class="col col-md-2">
+                <h4>Price</h4>
+              </div>
+              <div class="col col-md-2">
+                <h4>Qty</h4>
+              </div>
+              <div class="col">
+                <h4>Amount</h4>
+              </div>
+            </div>
 
-                        <div class="items">
-                        </div>
+            <div class="items"></div>
 
-                        <form class="row d-none">
-                            <div class="col-12 col-md-5 d-flex">
-                                <label class="sr-only" for="item">Item</label>
-                                <input id="item" class="w-100" type="text" placeholder="Item" required>
-                            </div>
+            <form class="row d-none">
+              <div class="col-12 col-md-5">
+                <label class="sr-only" for="item">Item</label>
+                <input id="item" class="w-100" type="text" placeholder="Item" required>
+              </div>
+              <div class="col-12 col-md-2">
+                <label class="sr-only" for="price">Price</label>
+                <input id="price" class="w-100 text-md-right" type="number" step=".01" placeholder="Price" required>
+              </div>
+              <div class="col-12 col-md-2 mb-4 mb-md-0">
+                <label class="sr-only" for="quantity">Quantity</label>
+                <input id="quantity" class="w-100 text-md-right" type="number" placeholder="Quantity" required>
+              </div>
+              <div class="col-12 col-md-3">
+                <input class="btn btn-secondary btn-block" type="submit" value="Enter">
+              </div>
+            </form>
 
-                            <div class="col-12 col-md-2 d-flex justify-content-end">
-                                <label class="sr-only" for="price">Price</label>
-                                <input id="price" class="w-100 text-md-right" type="number" step=".01" placeholder="Price" required>
-                            </div>
-                            
-                            <div class="col-12 col-md-2 d-flex justify-content-end mb-4 mb-md-0">
-                                <label class="sr-only" for="quantity">Quantity</label>
-                                <input id="quantity" class="w-100 text-md-right" type="number" placeholder="Quantity" required>
-                            </div>
+            <div class="row d-print-none">
+              <div class="col-12 pt-3">
+                <button id="addRowBtn" class="btn btn-outline-dark">&oplus;<span class="small ml-2">Add Item</span></button>
+              </div>
+            </div>
+          </div>
 
-                            <div class="col-12 col-md-3 d-flex justify-content-end">
-                                <input class="btn btn-secondary btn-block" type="submit" value="Enter">
-                            </div>
-                        </form>
-
-                        <div class="row d-print-none">
-                            <div class="col-12 d-flex pt-3">
-                                <button id="addRowBtn" class="btn btn-outline-dark"><i class="fas fa-plus-circle fa-lg mr-2"></i><span class="small">Add Item</span></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-light py-4 px-5">
-                        <div class="row justify-content-end">
-                            <div class="col-6 col-sm-3 d-flex justify-content-end">
-                                <h4>Subtotal</h4>
-                            </div>
-                            <div class="col-6 col-sm-3 d-flex justify-content-end">
-                                <p id="subtotal"></p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-end">
-                            <div class="col-6 col-sm-3 d-flex justify-content-end">
-                                <h4>Tax</h4>
-                            </div>
-                            <div class="col-6 col-sm-3 d-flex justify-content-end">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text border-0 bg-light">%</span>
-                                    </div>
-                                    <input id="tax" type="number" class="form-control text-right border-top-0 border-right-0 border-left-0 rounded-0 p-0 bg-light" placeholder="Tax" value="13" step="1" min="0">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row justify-content-end">
-                            <div class="col-6 col-sm-3 d-flex justify-content-end">
-                                <h4 class="text-uppercase">Total</h4>
-                            </div>
-                            <div class="col-6 col-sm-3 d-flex justify-content-end">
-                                <p id="total" class="h4"></p>
-                            </div>
-                        </div>
-                    </div>
+          <div class="bg-light text-right p-4 p-sm-5">
+            <div class="row">
+              <div class="col-12 col-sm-8">
+                <h4>Subtotal</h4>
+              </div>
+              <div class="col">
+                <p id="subtotal"></p>
+              </div>
+              <div class="col-12 col-sm-8">
+                <h4>Tax</h4>
+              </div>
+              <div class="col">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text border-0 bg-light">%</span>
+                  </div>
+                  <input id="tax" type="number" class="form-control text-right border-0 rounded-0 p-0 bg-light" placeholder="Tax" value="13" step="1" min="0">
                 </div>
+              </div>
+              <div class="col-12 col-sm-8 text-uppercase">
+                <h4>Total</h4>
+              </div>
+              <div class="col">
+                <p id="total" class="h4 font-weight-bold"></p>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-
-    <div class="container-fluid mt-auto">
-        <div class="row">
-            <div class="col-12 d-flex justify-content-end">
-                <p class="small">Created at <a href="http://junocollege.com" target="_blank">Juno College</a></p>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
 </body>
 </html>

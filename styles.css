@@ -1,32 +1,36 @@
-.font-special {
-    font-family: 'MuseoModerno', cursive;
-}
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500&display=swap');
 
 body {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
-.box-shadow {
-    box-shadow: 12px 12px 12px rgba(0,0,0,0.1);
+
+h1 {
+  font-family: 'MuseoModerno', cursive !important;
+}
+
+.card {
+  box-shadow: 12px 12px 12px rgba(0,0,0,0.1);
 }
 
 input {
-    border-top: 0;
-    border-right: 0;
-    border-left: 0;
-    outline: none;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  outline: none;
 }
 
-.items > div i {
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #fff;
+.items > div span {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  cursor: pointer;
 }
 
-.items > div:hover i {
-    color: #f00;
+.items > div:hover span {
+  color: #f00;
 }
 
 input:not(#tax)::-webkit-outer-spin-button,
